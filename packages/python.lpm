@@ -1,0 +1,35 @@
+
+#
+# Description: python
+#
+
+# source URL. It specifies where to download from.
+source=http://www.python.org/ftp/python/2.7.3/Python-2.7.3.tar.bz2
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+#name=
+#ver=
+
+# URL. Just for information.
+url=http://www.python.org/
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure
+configure
+
+# make
+make
+
+# make install
+makeinstall
+
+shell
+echo "You may want to install python-setuptools as well if you use setuptools."
+echo "Type 'lpm install python-setuptools' if so."
+EOC
+

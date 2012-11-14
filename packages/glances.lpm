@@ -1,0 +1,12 @@
+#
+# Description: a system monitoring tool (works on curses)
+# Depends: python
+#
+
+source=git://github.com/nicolargo/glances.git
+
+download
+custominstall
+python setup.py install --prefix=$LOCAL_DIR
+EOC
+

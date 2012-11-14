@@ -1,0 +1,32 @@
+Executed /var/www/lpm/script/sign_package ghc
+Ret code = 0
+Executed /var/www/lpm/script/sign_package compiler-envs
+Ret code = 0
+Executed /var/www/lpm/script/sign_package samtools
+Ret code = 0
+Executed /var/www/lpm/script/sign_package annovar
+Ret code = 0
+Executed /var/www/lpm/script/sign_package igv
+Ret code = 0
+Executed /var/www/lpm/script/sign_package sparsehash
+Ret code = 0
+Executed /var/www/lpm/script/sign_package trans-abyss
+Ret code = FF
+Executed /var/www/lpm/script/sign_package boost
+Ret code = FF
+Executed /var/www/lpm/script/sign_package ghc
+Ret code = FF
+Executed /var/www/lpm/script/sign_package zlib
+Ret code = FF
+Executed /var/www/lpm/script/sign_package samtools
+Ret code = FF
+Executed /var/www/lpm/script/sign_package igv
+Ret code = FF
+Executed /var/www/lpm/script/sign_package allpaths-lg
+Ret code = FF
+Executed /var/www/lpm/script/sign_package abyss-mpi
+Ret code = FF
+Executed /var/www/lpm/script/sign_package allpaths-lg
+Ret code = 0
+Executed /var/www/lpm/script/sign_package pindel
+Ret code = 0

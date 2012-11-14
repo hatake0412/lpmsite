@@ -1,0 +1,47 @@
+
+#
+# lpm file for boost library
+#
+
+# source URL. It specifies where to download from.
+source=http://downloads.sourceforge.net/project/boost/boost/1.48.0/boost_1_48_0.tar.bz2
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+#name=  automatically inferred
+#ver=
+
+# URL. Just for information.
+url=http://downloads.sourceforge.net/project/boost/boost/1.48.0/boost_1_48_0.tar.bz2
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure
+# configure
+
+# make
+# make
+shell
+cd boost*
+pwd
+./bootstrap.sh
+export BZIP2_INCLUDE=$INCLUDE_DIR
+export BZIP2_LIBPATH=$LIB_DIR
+export ZLIB_INCLUDE=$INCLUDE_DIR
+export ZLIB_LIBPATH=$LIB_DIR
+./b2 --prefix=$LOCAL_DIR --without-python $LPM_MAKE_OPTION
+
+EOC
+
+# make install
+# makeinstall
+custominstall
+cd boost*
+cp -dr boost $INCLUDE_DIR
+cp -dr stage/lib/* $LIB_DIR
+
+EOC
+

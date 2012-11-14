@@ -1,0 +1,38 @@
+
+#
+# Description: Pindel  can detect breakpoints of large deletions, 
+#              medium sized insertions, inversions, 
+#              tandem duplications and other structural variants at 
+#              single-based resolution from next-gen sequence data. 
+#              It uses a pattern growth approach to identify the breakpoints 
+#              of these variants from paired-end short reads.
+# Tested: SL6.1
+#
+
+# source URL. It specifies where to download from.
+source=http://zombie.cb.k.u-tokyo.ac.jp/lpm/pindel024q.tar.gz
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+#name=  automatically inferred
+#ver=
+
+# URL. Just for information.
+url=https://trac.nbic.nl/pindel/
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure
+# configure
+
+# make
+#make
+
+# make install
+custominstall
+cd pindel*/
+./INSTALL $BUILD_DIR/samtools-0.1.17
+EOC

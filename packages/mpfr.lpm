@@ -1,0 +1,30 @@
+
+#
+# Description: GNU MPFR Library
+#
+
+# source URL. It specifies where to download from.
+source=http://www.mpfr.org/mpfr-current/mpfr-3.1.1.tar.bz2
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+# name=
+# ver=
+
+# URL. Just for information.
+url=http://www.mpfr.org/
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure
+configure
+
+# make
+make
+
+# make install
+makeinstall
+

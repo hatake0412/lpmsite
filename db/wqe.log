@@ -1,0 +1,32 @@
+Enqueued /var/www/lpm/script/sign_package ghc
+Chmod error
+Enqueued /var/www/lpm/script/sign_package compiler-envs
+Chmod error
+Enqueued /var/www/lpm/script/sign_package samtools
+Chmod error
+Enqueued /var/www/lpm/script/sign_package annovar
+Chmod error
+Enqueued /var/www/lpm/script/sign_package igv
+Chmod error
+Enqueued /var/www/lpm/script/sign_package sparsehash
+Chmod error
+Enqueued /var/www/lpm/script/sign_package trans-abyss
+Chmod error
+Enqueued /var/www/lpm/script/sign_package boost
+Chmod error
+Enqueued /var/www/lpm/script/sign_package ghc
+Chmod error
+Enqueued /var/www/lpm/script/sign_package zlib
+Chmod error
+Enqueued /var/www/lpm/script/sign_package samtools
+Chmod error
+Enqueued /var/www/lpm/script/sign_package igv
+Chmod error
+Enqueued /var/www/lpm/script/sign_package allpaths-lg
+Chmod error
+Enqueued /var/www/lpm/script/sign_package abyss-mpi
+Chmod error
+Enqueued /var/www/lpm/script/sign_package allpaths-lg
+Chmod error
+Enqueued /var/www/lpm/script/sign_package pindel
+Chmod error

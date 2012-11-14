@@ -1,0 +1,34 @@
+
+#
+# Description: python setuptools
+#
+
+# source URL. It specifies where to download from.
+source=http://pypi.python.org/packages/2.7/s/setuptools/setuptools-0.6c11-py2.7.egg
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+name=python-setuptools
+ver=0.6c11
+
+# URL. Just for information.
+url=http://pypi.python.org/pypi/setuptools
+
+# download the package
+download
+
+# extract files
+# extract
+
+# configure
+# configure
+
+# make
+# make
+
+# make install
+custominstall
+sh $ARCHIVE_DIR/setuptools-0.6c11-py2.7.egg --prefix=$LOCAL_DIR
+EOC
+
+
+

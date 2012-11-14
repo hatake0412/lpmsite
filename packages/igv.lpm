@@ -1,0 +1,35 @@
+
+#
+# Description: IGV Integrative Genomics Viewer V2.1
+# Tested: SL6.1
+#
+
+# source URL. It specifies where to download from.
+source=http://www.broadinstitute.org/igv/projects/downloads/IGVDistribution_2.1.11.zip
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+#name=  automatically inferred
+#ver=
+
+# URL. Just for information.
+url=http://www.broadinstitute.org/igv/
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure
+
+# make
+#make
+
+# make install
+custominstall
+cd IGVDistribution*/
+ant
+cp *.jar $BIN_DIR/
+cp igv.sh $BIN_DIR/
+cp -r lib $LIB_DIR/
+EOC

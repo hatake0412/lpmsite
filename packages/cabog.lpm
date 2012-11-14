@@ -1,0 +1,37 @@
+#
+# Description: CABOG
+# Tested: SL6.1
+
+# source URL. It specifies where to download from.
+source=http://sourceforge.net/projects/wgs-assembler/files/wgs-assembler/wgs-6.1/wgs-6.1-Linux-amd64.tar.bz2
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+name=cabog
+ver=6.1
+
+# URL. Just for information.
+url=http://sourceforge.net/apps/mediawiki/wgs-assembler/index.php?title=Main_Page
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure
+# configure
+
+# make
+# make
+
+# make install
+custominstall
+mkdir -p $BIN_DIR/cabog
+cd Linux-amd64/bin/
+cp -dr * $BIN_DIR/cabog/
+echo "----------------------------------------------------------"
+echo "We copied cabog binaries into $BIN_DIR, in order to avoid"
+echo "potential name conflict."
+echo "----------------------------------------------------------"
+
+EOC

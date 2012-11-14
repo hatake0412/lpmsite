@@ -1,0 +1,35 @@
+
+#
+# Description: GCC 4.7.0
+# Depends: gmp mpc mpfr
+# <note>
+#  It may require GMP (The GNU Multiple Precision Arithmetic Library), MPC, MPFR.
+# </note>
+
+# source URL. It specifies where to download from.
+source=ftp://ftp.dti.ad.jp/pub/lang/gcc/releases/gcc-4.7.0/gcc-4.7.0.tar.bz2
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+# name=
+# ver=
+
+# URL. Just for information.
+url=http://gcc.gnu.org/
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure
+shell
+CC=gcc ./configure --enable-languages=c++ --prefix=$LOCAL_DIR --with-gmp=$LOCAL_DIR --with-mpc=$LOCAL_DIR --with-mpfr=$LOCAL_DIR
+EOC
+
+# make
+make
+
+# make install
+makeinstall
+

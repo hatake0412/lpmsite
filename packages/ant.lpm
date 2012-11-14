@@ -1,0 +1,41 @@
+
+
+#
+# lpm file for ant
+#
+# Description: ant
+# Tested: SL6.1
+
+# source URL. It specifies where to download from.
+source=http://mirrors.kahuki.com/apache//ant/binaries/apache-ant-1.8.3-bin.tar.bz2
+
+# package name and version. You can omit it when it can be inferred from the source URL.
+#name=  automatically inferred
+#ver=
+
+# URL. Just for information.
+url=http://ant.apache.org/
+
+# download the package
+download
+
+# extract files
+extract
+
+# configure & make
+# do not need to configure or make because it's Java application...
+
+# install
+custominstall
+cp -r $LPM_BUILD/apache-ant-$PACKAGE_VER $LPM_LIB
+rm $LPM_BIN/ant
+ln -s $LPM_LIB/apache-ant-$PACKAGE_VER/bin/ant $LPM_BIN/
+EOC
+
+loadstartup
+setini
+export ANT_HOME=$LPM_LIB/apache-ant-1.8.3
+EOC
+savestartup
+
+
