@@ -1,0 +1,164 @@
+#!/usr/bin/perl
+
+use strict;
+
+my $lang = shift; # en or ja is accepted.
+unless(defined $lang) {
+    $lang = 'en';
+}
+my $ascdir = shift;
+if(defined $ascdir) {
+    chdir $ascdir;
+}
+
+# This implementation was copied from the original LPM.
+# If the original LPM is updated, this needs update.
+sub get_version_from_filename
+{
+    my $filename = shift;
+    if($filename =~ m|-(\d+(\.\d+)*(-p\d+)?)|) {
+	return $1;
+    } else {
+	return undef;
+    }
+}
+
+my @lpmfiles = <*.asc>;
+my @packages;
+
+for my $asc_lpm (@lpmfiles) {
+    my $lpm = $asc_lpm;
+    $lpm =~ s|\.asc$||i;
+    my $package_name = $lpm;
+    $package_name =~ s|\.lpm$||i;
+    my $description;
+    my $filename;
+    my $version;
+    my $homepage;
+    my $tested;
+    my $note;
+    my $depends;
+    
+    my $is_in_note = 0;
+    open my $fh, "<", $asc_lpm or die "Could not open $asc_lpm";
+    while(<$fh>) {
+	chomp;
+	chop if(/\r$/);
+	if($is_in_note) {
+	    if(/\s*#(.*)#/) {
+		my $line = $1;
+		if($line =~ m|</note>|) {
+		    $is_in_note = 0;
+		} else {
+		    $note .= "$1<br />";
+		}
+	    }
+	}
+	if(/\s*#\s*Description\s*:\s*(.*)$/) {
+	    $description = $1;
+	} elsif(/\s*#\s*Tested\s*:\s*(.*)$/) {
+	    $tested = $1;
+	} elsif(/\s*#\s*Depends?\s*:\s*(.*)$/) {
+	    $depends = $1;
+	} elsif(/\s*#\s*<note>/) {
+	    $is_in_note = 1;
+	} elsif(/^\s*source\s*=\s*(.*)$/) {
+	    my $url = $1;
+            unless(defined $version) {
+	        $version = get_version_from_filename($url);
+            }
+	} elsif(/^\s*ver\s*=\s*(.*)$/) {
+	    $version = $1;
+	} elsif(/^\s*url=\s*(.*)$/) {
+	    $homepage = $1;
+	}
+    }
+    close $fh;
+    if(defined $description) {
+	push(@packages, {
+	    name => $package_name,
+	    description => $description,
+	    version => $version,
+	    homepage => $homepage,
+	    tested => $tested,
+	    note => $note,
+	    depend => $depends,
+	     });
+    }
+}
+
+my $language = "English";
+
+if($lang eq 'ja') {
+    $language = "Japanese";
+}
+
+print << "EOF";
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Language" content="$language" />
+  <title>LPM: Local Package Manager</title>
+  <link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-16079961-2']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+ </head>
+ <body>
+  <div id="wrap">
+   <div id="top"></div>
+   <div id="content">
+    <div class="header">
+     <h1><a href="#">LPM: Local Package Manager</a></h1>
+     <h2>Want to install software without root?</h2>
+    </div>
+    <div class="breadcrumbs">
+     <a href="#">Available packages</a>
+    </div>
+    <div class="middleonly">
+     <h2>Available packages in the default public repository.</h2>
+     <table>
+EOF
+
+if($lang eq 'ja') {
+    print "      <tr><th>パッケージ名</th><th>ver</th><th>説明</th><th>備考</th><th>テスト済環境</th><th>ホームページ</th><th>依存パッケージ</th></tr>\n";
+} else {
+    print "      <tr><th>name</th><th>ver</th><th>description</th><th>note</th><th>tested on</th><th>webpage</th><th>depends</th></tr>\n";
+}
+
+for my $package (@packages) {
+    print "<tr>";
+    print "<td>$package->{name}</td>";
+    print "<td>$package->{version}</td>";
+    print "<td>$package->{description}</td>";
+    print "<td>$package->{note}</td>";
+    print "<td>$package->{tested}</td>";
+    if(defined $package->{homepage}) {
+        print "<td><a href=\"$package->{homepage}\">link</a></td>";
+    } else {
+        print "<td>link</td>";
+    }
+    print "<td>$package->{depend}</td>";
+    print "</tr>\n";
+}
+
+
+print << 'EOF';
+     </table>
+    </div> <!-- end of main test -->
+    <div id="clear"></div>
+   </div>
+   <div id="bottom"></div>
+  </div>
+  <div id="footer">Design by <a href="http://www.minimalistic-design.net">Minimalistic Design</a></div>
+ </body>
+</html>
+EOF

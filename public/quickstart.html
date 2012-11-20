@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LPM: Local Package Manager</title>
+<meta http-equiv="Content-Language" content="English" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16079961-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id="wrap">
+
+<div id="top"></div>
+
+<div id="content">
+
+<div class="header">
+<h1><a href="#">LPM: Local Package Manager</a></h1>
+<h2>Want to install software without root?</h2>
+</div>
+
+<div class="breadcrumbs">
+<a href="#">Home</a><div class="langsel">English | <a href="./index_ja.html">Japanese</a></div>
+</div>
+
+<div class="middle">
+  <h1 class="title">Quick Start</h1>
+  <div class="entry">
+  <p>Let's install LPM.</p>
+  <div class="ex">
+   $ cd<br />
+   $ wget http://www.kasahara.ws/lpm/lpm<br />
+   $ chmod +x lpm<br />
+   $ ./lpm initlocaldir<br />
+   $ rm ./lpm<br />
+  </div>
+  <p>Next we relogin. Alternatively you can use the following command:</p>
+  <div class="ex">
+   $ exec $SHELL -l
+  </div>
+  <p>Let's install a new package. For exmaple, you can type as the following to install ttyrec:</p>
+  <div class="ex">
+   $ ttyrec<br />
+   bash: ttyrec: Command not found.<br />
+   $ lpm install ttyrec<br />
+   (you see lots of messages here)<br />
+   $ exec $SHELL -l (or you relogin here)<br />
+   $ ttyrec -h<br />
+   usage: ttyrec [-u] [-e command] [-a] [file]<br />
+   $<br />
+   <p>Wow, it's easy as yum and it doesn't need root!</p>
+  </div>
+  <p>To show the installed packages, do 'lpm list':</p>
+  <div class="ex"><pre style="margin:0">$ lpm list
+  2M    1  02-Feb-2010  lpm-1.0
+ 28M   13  06-Sep-2010  maven-2.0.11
+ 22M   13  02-Feb-2010  paco-2.0.7
+ 12M    6  06-Sep-2010  ttyrec-1.0.8</pre>
+  </div>
+  <p>'lpm list (package name)' shows the list of installed files for a specified package (e.g., maven).</p>
+  <div class="ex">
+  $ lpm list maven<br />
+  </div>
+  <p>Uninstall a package (e.g., maven).</p>
+  <div class="ex">
+  $ lpm uninstall maven<br />
+  </div>
+  <p>Uninstall everything including LPM itself.</p>
+  <div class="ex">
+  $ lpm removelocaldir<br />
+  </div>
+  <p>Install a package from URL. (You need to write an LPM script if the given package does not follow the GNU-style installation process. (i.e., ./configure && make && make install))</p>
+  <div class="ex">
+  $ lpm install http://tukaani.org/xz/xz-4.999.9beta.tar.bz2<br />
+  </div>
+  <p>Sometimes you may see a warning message that complains old database. You can type 'paco -ua' to scan the files.</p>
+  <div class="ex">
+  $ paco -ua
+  </div>
+  <p>We think most users do not use other features.</p>
+  </div>
+</div> <!-- end of main text -->
+		
+<div class="right">
+		
+<h2>Navigation</h2>
+
+<ul>
+<li><a href="./index.html">Home</a></li>
+<li><a href="./introduction.html">Introduction</a></li>
+<li><a href="./download.html">Download</a></li>
+<li><a href="./quickstart.html">Quick Start</a></li>
+<li><a href="./installation.html">Installation</a></li>
+<li><a href="./document.html">Document</a></li>
+<li><a href="./browse.html">Browse Packages</a></li>
+<li><a href="./upload.cgi?la=en">Submit New Script</a></li>
+<li><a href="./changelog.html">Change Log</a></li>
+<li><a href="./discussion.html">Discussion</a></li>
+</ul>
+		
+</div> <!-- end of navigation -->
+
+<div id="clear"></div>
+
+</div>
+
+<div id="bottom"></div>
+
+</div>
+
+<div id="footer">
+Design by <a href="http://www.minimalistic-design.net">Minimalistic Design</a>
+</div>
+
+</body>
+</html>

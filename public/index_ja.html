@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LPM: Local Package Manager</title>
+<meta http-equiv="Content-Language" content="Japanese" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-16079961-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<div id="wrap">
+
+<div id="top"></div>
+
+<div id="content">
+
+<div class="header">
+<h1><a href="#">LPM: Local Package Manager</a></h1>
+<h2>Want to install software without root?</h2>
+</div>
+
+<div class="breadcrumbs">
+<a href="#">Home</a><div class="langsel"><a href="./index.html">English</a> | Japanese</div>
+</div>
+
+<div class="middle">
+<h2>Home</h2>
+<p>Linux を使っていて、root は持っていないけど新規にソフトをインストールしたいと思ったことはありませんか？
+ちゃんとパッケージ化されていないソフトをインストールするのが面倒だと思ったことはありませんか？
+あなたの環境でコンパイラエラーを回避するために何度も同じパッチを当てなければならなかったことはありませんか？
+そんな貴方に LPM は手をさしのべます。</p>
+<h2>yum や apt とは何が違うの？</h2>
+<p>LPM では root 権限が無い場合に特化し、全てのソフトウェアはホームディレクトリ以下にインストールします。
+通常は /etc に置かれる設定ファイルなども全てホームディレクトリ以下に設置することを意図しています。</p>
+<p>また、インストールするソフトウェアをグループに分け、一括で on/off を切り替えることができるのも特徴です。
+例えばライブラリ A ver 1.11 が動作時に必要なソフト B と、ライブラリ A ver 2.22 が動作時に必要なソフト C が通常は共存できない場合に、A-1.11 と B をインストールしたディレクトリと A-2.22 と C をインストールしたディレクトリの２つに分け、片方だけスイッチ on して使うことができます。</p>
+<p>tar ball が GNU スタイルのインストール手段をサポートしていない場合でもパッケージ化できます。ログイン時に設定する環境変数等も記述可能です。</p>
+<h2>tar ball から自分でインストールするのと何が違う？</h2>
+たしかに、tar ball を自分でダウンロードして、<tt>./configure --prefix=$HOME/local && make && make install</tt> すれば問題はだいたい解決するんですが、
+実際にこの方法でたくさんソフトウェアをインストールしてみるといろいろと面倒なことが分かってきます。
+ソフト名で google 検索して最新版のホームページを探し、tar ball をダウンロードしてくる作業がまず面倒です。
+私はあちこちでマシンを借りているのですが、５台も６台もマシンを使っていると URL をメモして一発で呼び出したくなります。
+tar ball をダウンロードし保存する先のディレクトリもたいてい決まっているので、ブラウザのダイアログでいちいち保存するディレクトリ指定するのも面倒です。
+LPM なら一度(誰かが)メモした URL からのダウンロードはソフト名のキーワードを入れるだけで済みます。
+自前の管理だと configure するときに --prefix をたまに付け忘れ、 make まで終わったのに configure からやり直すことがあるのが面倒ですが、LPM なら configure の prefix オプションは自動で設定します。
+システムに ライブラリ A の ver X が入っているんだけど、これから入れたいソフト B はライブラリ A の ver Y 以上じゃないと動かない。
+逆に、ソフト C はライブラリ A の ver X でないと動かない、というときに切り替えが面倒ですが、LPM なら簡単に切り替えができます。
+make install した後に PATH とか MAN_PATH とか LD_LIBRARY_PATH とか設定し忘れて、絶対PATH指定しないと動かなかったり man が出てこなかったりいろいろ面倒ですが、これも LPM なら簡単。
+.bash_profile に記述したら tcsh を使ったときに読み込まれなくて残念。或いは .zshrc に記述したら、一時的に bash を使ったときに読み込まれなくて残念な思いをするので面倒ですが、LPM なら bash/tcsh/zsh の３種類を自動で設定。exportとsetenvも自動dで変換しますので、bash用のスクリプトだけ用意すればOK。
+アンインストールしたいときに面倒です。GNU automake で作ったパッケージなら make uninstall で大体は消せますが、.bash_profile の PATH の指定とか MAN_PATH の指定とかまでは消えません。 GNU式の configure を使っていない場合にはソフト自体のアンインストールも面倒。 paco とか使えばいいんですけど、paco のインストールも面倒だし、使い方を思い出すのも面倒です。paco では環境変数は消してくれません。
+この点もLPMは解決しています。
+Perl とか Python のモジュールをホームディレクトリ以下にインストールしたい時に、tar ball だとインストールからかなり面倒で、環境変数の設定等も面倒。
+こんなに面倒なんですが、LPMを使うと大体楽になります。</p>
+
+</div> <!-- end of main text -->
+		
+<div class="right">
+		
+<h2>Navigation</h2>
+
+<ul>
+<li><a href="./index_ja.html">Home</a></li>
+<li><a href="./introduction_ja.html">Introduction</a></li>
+<li><a href="./download_ja.html">Download</a></li>
+<li><a href="./quickstart_ja.html">Quick Start</a></li>
+<li><a href="./demomovie_ja.html">Demo Movie</a></li>
+<li><a href="./installation_ja.html">Installation</a></li>
+<li><a href="./document_ja.html">Document</a></li>
+<li><a href="./browse_ja.html">Browse Packages</a></li>
+<li><a href="./upload.cgi?la=ja">Submit New Script</a></li>
+<li><a href="./changelog_ja.html">Change Log</a></li>
+<li><a href="./discussion_ja.html">Discussion</a></li>
+</ul>
+		
+</div> <!-- end of navigation -->
+
+<div id="clear"></div>
+
+</div>
+
+<div id="bottom"></div>
+
+</div>
+
+<div id="footer">
+Design by <a href="http://www.minimalistic-design.net">Minimalistic Design</a>
+</div>
+
+</body>
+</html>

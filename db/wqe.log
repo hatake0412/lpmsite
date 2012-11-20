@@ -30,3 +30,25 @@ Enqueued /var/www/lpm/script/sign_package allpaths-lg
 Chmod error
 Enqueued /var/www/lpm/script/sign_package pindel
 Chmod error
+Enqueued /var/www/lpm/script/sign_package bowtie
+Chmod error
+Enqueued /var/www/lpm/script/sign_package compiler-envs
+Chmod error
+Enqueued /var/www/lpm/script/sign_package texlive
+Chmod error
+Enqueued /var/www/lpm/script/sign_package tophat
+Chmod error
+Enqueued /var/www/lpm/script/sign_package expat
+Chmod error
+Enqueued /var/www/lpm/script/sign_package sparsehash
+Chmod error
+Enqueued /var/www/lpm/script/sign_package cufflinks
+Chmod error
+Enqueued /var/www/lpm/script/sign_package compiler-envs
+Chmod error
+Enqueued /var/www/lpm/script/sign_package igv
+Chmod error
+Enqueued /var/www/lpm/script/sign_package samtools
+Chmod error
+Enqueued /var/www/lpm/script/sign_package oases
+Chmod error

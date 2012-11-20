@@ -1,0 +1,134 @@
+* {
+    padding: 0;
+    margin: 0;
+} 
+
+body {
+    background: #fff;
+	font: .74em "Trebuchet MS" Verdana, Arial, sans-serif;
+	line-height: 1.5em; 
+}
+a {
+	color: #3B6EBF;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+#wrap {
+margin: 20px auto;
+width: 950px;
+background: #fff url('images/midbg.jpg');
+background-repeat: repeat-y;
+}
+
+#top { 
+background: #fff url('images/topbg.jpg');
+height: 30px;
+}
+
+#content {
+padding: 0 40px 0 40px;
+}
+
+#bottom {
+
+background: #fff url('images/botbg.jpg');
+height: 30px;
+}
+
+
+.header {
+height: 100px;
+background: #85ACF7 url('images/hidr.jpg');
+}
+
+.header h1 { padding-left: 17px; padding-top: 22px; font-size: 22px; color: #FFF; padding-bottom: 3px; }
+.header h1 a { font-size: 22px; color: #FFF; text-decoration: none;}
+.header h2 { padding-left: 17px; padding-top: 0px; font-size: 17px; color: #FFF; padding-bottom: 2px; }
+
+.breadcrumbs { 
+    background: #F6F9FB; 
+	border-bottom: 1px solid #E1E1E1; 
+	padding: 5px;
+}
+	
+.langsel {
+	display: inline;
+	float: right;
+}
+
+.middle {
+	float: left;
+	width: 59%;
+	margin: 0 10px;
+	padding: 1% 1%;
+	text-align: justify;
+}
+
+.right {
+	float: left;
+	width: 30%;
+	margin: 0 10px;
+	padding: 1% 1%;
+	
+}
+
+.right ul {
+	padding: 20px 0 15px 20px;
+	margin:0;
+}
+
+.right li {
+	margin-bottom:5px;
+	list-style-type: square;
+	color: #3B6EBF;
+}
+
+.middle h1 { color: #3B6EBF; font-size: 16px; margin-bottom: 10px; margin-top: 10px;}
+.middle h2 { color: #3B6EBF; font-size: 16px; margin-bottom: 10px; margin-top: 10px;}
+.middle h3 { color: #3B6EBF; font-size: 14px; margin-bottom: 9px; margin-top: 9px;}
+.right h2 { color: #3B6EBF; font-size: 14px; margin-top: 15px;}
+
+.middle ul { margin: 5px 5px 5px 16px; }
+.middle blockquote {
+  background-color : #eef;
+  padding: 5px;
+  margin: 12px 25px 12px 12px;
+  border-color: #669;
+  border-width: 1px;
+  border-style: solid;
+  color: #005;
+  font-family: monospace;
+  font-size: 11px;
+}
+
+.ex{
+  background-color : #eef;
+  padding: 5px;
+  margin: 12px 25px 12px 12px;
+  border-color: #669;
+  border-width: 1px;
+  border-style: solid;
+  color: #005;
+  font-family: monospace;
+  font-size: 13px;
+}
+
+#clear {
+	display: block;
+	clear: both;
+	width: 100%;
+	height:1px;
+	overflow:hidden;
+}
+
+#footer {
+	text-align: center;
+	color: #666;
+}
+
+

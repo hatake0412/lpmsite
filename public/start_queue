@@ -1,0 +1,9 @@
+#!/bin/sh
+
+eval $(gpg-agent --daemon --homedir=$HOME/rep/lpm/wwwe/lpm)
+echo hoge > /tmp/hoge
+gpg --homedir=$HOME/rep/lpm/secretkey --clearsign /tmp/hoge
+rm /tmp/hoge /tmp/hoge.asc
+
+./sqlite3queue
+

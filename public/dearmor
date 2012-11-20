@@ -1,0 +1,19 @@
+#!/usr/bin/env perl
+
+use strict;
+
+my $in_message = 0;
+while(<>) {
+    if($in_message) {
+	if(/^-----BEGIN PGP SIGNATURE-----/) {
+	    $in_message = 0;
+	    last;
+	}
+	print;
+    } else {
+	if(/^-----BEGIN PGP SIGNED MESSAGE-----/) {
+	    $in_message = 1;
+	    my $dummy = <>;
+	}
+    }
+}

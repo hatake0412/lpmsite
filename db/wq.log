@@ -30,3 +30,25 @@ Executed /var/www/lpm/script/sign_package allpaths-lg
 Ret code = 0
 Executed /var/www/lpm/script/sign_package pindel
 Ret code = 0
+Executed /var/www/lpm/script/sign_package bowtie
+Ret code = 2
+Executed /var/www/lpm/script/sign_package compiler-envs
+Ret code = 2
+Executed /var/www/lpm/script/sign_package texlive
+Ret code = 2
+Executed /var/www/lpm/script/sign_package tophat
+Ret code = 0
+Executed /var/www/lpm/script/sign_package expat
+Ret code = 2
+Executed /var/www/lpm/script/sign_package sparsehash
+Ret code = 2
+Executed /var/www/lpm/script/sign_package cufflinks
+Ret code = 2
+Executed /var/www/lpm/script/sign_package compiler-envs
+Ret code = FF
+Executed /var/www/lpm/script/sign_package igv
+Ret code = 0
+Executed /var/www/lpm/script/sign_package samtools
+Ret code = 0
+Executed /var/www/lpm/script/sign_package oases
+Ret code = 2

@@ -1,0 +1,33 @@
+#!/bin/sh
+
+WWW_DIR=/home/htdocs/www.kasahara.ws/lpm
+WWWREP_DIR=$WWW_DIR/repository
+TMP_DIR=/home/mkasa/wwwe/lpm/tmp
+REP_DIR=/home/mkasa/rep/lpm/packages
+BIN_DIR=/home/mkasa/rep/lpm/wwwe/lpm
+
+if [ -e $TMP_DIR/$1.lpm.asc ]; then
+	$BIN_DIR/dearmor $TMP_DIR/$1.lpm.asc > $TMP_DIR/$1.lpm
+	rm $TMP_DIR/$1.lpm.asc
+	date
+	gpg --homedir=$HOME/rep/lpm/secretkey --batch --clearsign $TMP_DIR/$1.lpm
+	if [ -e $TMP_DIR/$1.lpm.asc ] ; then
+		echo cp $TMP_DIR/$1.lpm $REP_DIR/	
+		cp $TMP_DIR/$1.lpm $REP_DIR/	
+		echo cp $TMP_DIR/$1.lpm.asc $REP_DIR/	
+		cp $TMP_DIR/$1.lpm.asc $REP_DIR/	
+		echo rm $TMP_DIR/$1.lpm
+		rm $TMP_DIR/$1.lpm
+		echo rm $TMP_DIR/$1.lpm.asc
+		rm $TMP_DIR/$1.lpm.asc
+		echo cp $REP_DIR/$1.lpm $WWWREP_DIR/
+		cp $REP_DIR/$1.lpm $WWWREP_DIR/
+		echo cp $REP_DIR/$1.lpm.asc $WWWREP_DIR/	
+		cp $REP_DIR/$1.lpm.asc $WWWREP_DIR/	
+                echo cd $WWWREP_DIR
+                cd $WWWREP_DIR
+		/home/mkasa/rep/lpm/wwwe/lpm/update_list en > $WWW_DIR/browse.html
+		/home/mkasa/rep/lpm/wwwe/lpm/update_list ja > $WWW_DIR/browse_ja.html
+	fi
+fi
+
