@@ -1,3 +1,4 @@
+
 <table>
   <tr>
     <th>Name</th>
@@ -5,9 +6,7 @@
     <th>Description</th>
     <th>Depends</th>
     <th>Cnt</th>
-    <th>BBS</th>
-    <th></th>
-    <th></th>
+    <th>FAQ</th>
   </tr>
 
 <% @packages.each do |package| %>
@@ -16,10 +15,8 @@
     <td><%= package.ver %></td>
     <td><%= package.description %></td>
     <td><%= package.depends %></td>
-    <td><%= package.cnt %></td>
-    <td><%= link_to 'BBS', :controller => 'bbs' %></td>
-    <td><%= link_to 'Edit', edit_package_path(package) %></td>
-    <td><%= link_to 'Destroy', package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to '動いたよ (' << package.cnt.to_s << ')' %></td>
+    <td><%= link_to 'FAQ', faq_response_path(package.id) %></td>
   </tr>
 <% end %>
 </table>

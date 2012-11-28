@@ -1,0 +1,22 @@
+<h1>Listing responses</h1>
+<h2><%= @package.name %></h2><%= @package.ver %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Content</th>
+    <th>Package</th>
+  </tr>
+
+<% @response.each do |response| %>
+  <tr>
+    <td><%= response.name %></td>
+    <td><%= response.email %></td>
+    <td><%= simple_format response.content %></td>
+    <td><%= response.package_id %></td>
+  </tr>
+<% end %>
+</table>
+<%= render 'form' %>
+<br />
+<%= link_to 'New Response', new_response_path %>

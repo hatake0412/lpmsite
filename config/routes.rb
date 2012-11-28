@@ -1,5 +1,8 @@
 Lpm::Application.routes.draw do
-  resources :responses
+
+  resources :responses do 
+      get :faq, :on => :member
+    end
 
   resources :bbs
 
@@ -64,5 +67,4 @@ Lpm::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  match 'responses/:package_id'=>'responses#index'
 end
