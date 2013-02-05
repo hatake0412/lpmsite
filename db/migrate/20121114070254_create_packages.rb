@@ -6,7 +6,7 @@ class CreatePackages < ActiveRecord::Migration
       t.text :description
       t.text :note
       t.string :depends
-      t.string :cnt
+      t.integer :cnt,{:default => 0}
 
       t.timestamps
     end

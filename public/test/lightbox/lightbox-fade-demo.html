@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lightbox with Fade Effect , the Demonstration</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<link type="text/css" rel="stylesheet" href="lightbox-image.css">
+<script src="ajax.js" type="text/javascript"></script>
+<script src="lightbox-fade.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<h1> Lightbox with Fade Effect , the Demonstration</h1>
+<p> Demonstration of the lightbox for pictures with fade in effect for a progressive 
+  show of the box, using Ajax for pre-loading images.</p>
+
+<br>
+
+<div id="filter"></div>
+<div id="box">
+    <div id="boxcontent"  onclick="closebox()">  </div> 
+    <div id="boxtitle"></div>
+</div>
+
+
+<p>The original images are loaded while you are reading this page.</p>
+<p> The image gradually appears when you click on a thumbnail ...</p> 
+<img src="images/thumb-acores.jpg" width="150" height="150" onClick="openbox('images/acores.jpg', 1);">
+<img src="images/thumb-prison.jpg" width="150" height="150" onClick="openbox('images/prison.jpg', 1);">
+<img src="images/thumb-shark.jpg" width="150" height="150" onClick="openbox('images/shark.jpg', 1);">
+
+<br>
+
+<hr>
+
+<p>(c) 2008 <a href="http://www.xul.fr/en/" target="_parent">xul.fr</a></p>
+</body>
+</html>

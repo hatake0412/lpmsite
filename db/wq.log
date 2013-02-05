@@ -52,3 +52,9 @@ Executed /var/www/lpm/script/sign_package samtools
 Ret code = 0
 Executed /var/www/lpm/script/sign_package oases
 Ret code = 2
+Executed /var/www/lpm/script/sign_package pindel
+Ret code = 0
+Executed /var/www/lpm/script/sign_package tophat
+Ret code = 0
+Executed /var/www/lpm/script/sign_package tophat
+Executed /var/www/lpm/script/sign_package sparsehash

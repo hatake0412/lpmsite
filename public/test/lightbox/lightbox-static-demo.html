@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lightbox, static demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<link type="text/css" rel="stylesheet" href="lightbox-css.css">
+
+</head>
+
+<body>
+<h1>JavaScript and CSS Lightbox, Static Demo</h1>
+<p>A simple demo of the universal  lightbox with a static content.</p>
+
+<br>
+
+<div id="shadowing"></div>
+<div id="box">
+<div id="boxheader">
+    Title of the content (image, form or other)
+   <span id="boxclose" onClick="document.getElementById('box').style.display='none';
+   document.getElementById('shadowing').style.display='none'"> </span>
+</div>
+<div id="boxcontent">
+
+And this is the static content of the box. <br><br>
+Dynamic content in the next demo...
+
+</div>
+</div>
+
+
+<p>To display the box, click on the link <a href="#" onClick="document.getElementById('shadowing').style.display='block';
+	  document.getElementById('box').style.display='block';">open</a> 
+</p>
+
+<br>
+
+<hr>
+
+<p>(c) 2008 <a href="http://www.xul.fr/en/" target="_parent">xul.fr</a></p>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Test of Form</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+</head>
+
+<body bgcolor="#FFFFFF">
+<h1>Test of the Form</h1>
+<br>
+<div id="data"> </div>
+<p><br>
+  <script type="text/javascript">
+
+function retrieve()
+{
+
+	var parameters = location.search.substring(1).split("&");
+	var temp = parameters[0].split("=");
+	mail = unescape(temp[1]);
+
+	temp = parameters[1].split("=");
+	sex = unescape(temp[1]);
+
+	temp = parameters[2].split("=");
+	city = unescape(temp[1]);
+
+	var data =  document.getElementById("data");
+
+	data.innerHTML = "Email: " + mail + "<br>";
+	data.innerHTML += "Genre: " + sex + "<br>";
+	data.innerHTML += "City: " + city + "<br>";
+
+}
+
+retrieve();
+
+</script>
+  <br>
+<hr>
+<a href="lightbox-form-demo.html" target="_parent">Return to the demo</a> - <a href="lightbox-form.html" target="_parent">Return 
+to the article</a> - <a href="http://www.xul.fr/en/" target="_parent">Return 
+to home page.</a> 
+<p></p>
+</body>
+</html>

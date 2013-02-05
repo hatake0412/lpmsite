@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Lightbox for images</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+<link type="text/css" rel="stylesheet" href="lightbox-image.css">
+<script src="lightbox.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+<h1>Lightbox for images, demo</h1>
+<p>Demonstration of a lightbox that display images.</p>
+
+<br>
+
+<div id="shadowing"></div>
+<div id="box">
+    <div id="boxcontent"  onclick="closebox()">  </div> 
+    <div id="boxtitle"></div>
+</div>
+
+
+<p>To display an image into the lightbox, click on the corresponding thumbnail...</p> 
+<img src="images/thumb-sea.jpg" width="150" height="150" onClick="openbox('images/small-sea.jpg');">
+<img src="images/thumb-goldisle.jpg" width="150" height="150" onClick="openbox('images/goldisle.jpg');">
+<img src="images/thumb-greenhouse.jpg" width="150" height="150" onClick="openbox('images/greenhouse.jpg');">
+
+<br>
+
+<hr>
+
+<p>(c) 2008 <a href="http://www.xul.fr/en/" target="_parent">xul.fr</a></p>
+</body>
+</html>

@@ -197,33 +197,33 @@ gpgsigmsg_ja = '''
 navigation_en = '''
 <h2>Navigation</h2>
 <ul>
-<li><a href="./index.html">Home</a></li>
-<li><a href="./introduction.html">Introduction</a></li>
-<li><a href="./download.html">Download</a></li>
-<li><a href="./quickstart.html">Quick Start</a></li>
-<li><a href="./installation.html">Installation</a></li>
-<li><a href="./document.html">Document</a></li>
-<li><a href="./browse.html">Browse Packages</a></li>
-<li><a href="./upload.cgi?la=en">Submit New Script</a></li>
-<li><a href="./changelog.html">Change Log</a></li>
-<li><a href="./discussion.html">Discussion</a></li>
+<li><a href="/index.php">Home</a></li>
+<li><a href="/introduction.php">Introduction</a></li>
+<li><a href="/download.php">Download</a></li>
+<li><a href="/quickstart.php">Quick Start</a></li>
+<li><a href="/installation.php">Installation</a></li>
+<li><a href="/document.php">Document</a></li>
+<li><a href="/faq/index.php">Browse Packages</a></li>
+<li><a href="/upload.cgi?la=en">Submit New Script</a></li>
+<li><a href="/changelog.php">Change Log</a></li>
+<li><a href="/discussion.php">Discussion</a></li>
 </ul>
 '''
 
 navigation_ja = '''
 <h2>Navigation</h2>
 <ul>
-<li><a href="./index_ja.html">Home</a></li>
-<li><a href="./introduction_ja.html">Introduction</a></li>
-<li><a href="./download_ja.html">Download</a></li>
-<li><a href="./quickstart_ja.html">Quick Start</a></li>
-<li><a href="./demomovie_ja.html">Demo Movie</a></li>
-<li><a href="./installation_ja.html">Installation</a></li>
-<li><a href="./document_ja.html">Document</a></li>
-<li><a href="./browse_ja.html">Browse Packages</a></li>
-<li><a href="./upload.cgi?la=ja">Submit New Script</a></li>
-<li><a href="./changelog_ja.html">Change Log</a></li>
-<li><a href="./discussion_ja.html">Discussion</a></li>
+<li><a href="/index.php">Home</a></li>
+<li><a href="/introduction.php">Introduction</a></li>
+<li><a href="/download.php">Download</a></li>
+<li><a href="/quickstart.php">Quick Start</a></li>
+<li><a href="/demomovie.php">Demo Movie</a></li>
+<li><a href="/installation.php">Installation</a></li>
+<li><a href="/document.php">Document</a></li>
+<li><a href="/faq/index.php">Browse Packages</a></li>
+<li><a href="/upload.cgi?la=ja">Submit New Script</a></li>
+<li><a href="/changelog.php">Change Log</a></li>
+<li><a href="/discussion.php">Discussion</a></li>
 </ul>
 '''
 
