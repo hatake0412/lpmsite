@@ -174,7 +174,7 @@ html = '''
    </div>
    <div id="bottom"></div>
   </div>
-  <div id="footer">Design by <a href="http://www.minimalistic-design.net">Minimalistic Design</a></div>
+  <div id="footer">Copyright 2012 Masahiro Kasahara, all rights reserved.</div>
  </body>
 </html>
 '''
@@ -262,21 +262,6 @@ if form.has_key('lpmscript'):
                 nbytes = -1
             if nbytes > 0:
                 try:
-                    proc = subprocess.Popen(["gpg", "--homedir=/var/www/lpm/publickey", "--lock-never", "--verify", tmpfilename],
-                                            shell=False,
-                                            stdin=subprocess.PIPE,
-                                            stdout=subprocess.PIPE,
-                                            stderr=subprocess.PIPE)
-                    so, se = proc.communicate('tsts')
-                    errors = '<br />'
-                    for c in se:
-                        if c == "\n":
-                            errors += "<br />"
-                        else:
-                            errors += c
-                    retcode = proc.wait()
-                    if retcode == 0:
-                        # new_filename = os.path.join(repository_base_dir, item.filename)
                         while True:
                             try:
                                 write_log(log_filename, "%s was verified and deployed." % cgi.escape(item.filename))
@@ -286,30 +271,19 @@ if form.has_key('lpmscript'):
                             result = "Verification succeeded"
                             try:
                                 p = item.filename.lower()
-                                p = re.sub(r'\.asc$', r'', p)
                                 p = re.sub(r'\.lpm$', r'', p)
                                 enqueue_sign_job(p, log_filename)
                                 write_log(log_filename, "Queueing successful")
                             except Exception, i:
                                 result = "Error during enqueueing" + str(i)
                             break
-                    else:
-                        if retcode == 1:
-                            result = "GPG key verification failed (you may see this error when you did not sign your script.). Wait for committers' review"
-                            write_log(log_filename, "%s is waiting for review." % cgi.escape(item.filename))
-                        else:
-                            if now_debugging:
-                                result = ("GPG error (%d)" % retcode) + errors
-                            else:
-                                result = ("GPG error (%d)" % retcode)
-                            write_log(log_filename, "%s was uploaded but encountered an error (IP: %s)." % (item.filename, os.environ["REMOTE_ADDR"]))
                 except:
                     result = "An error occurred"
         else:
             if item.filename == "":
                 result = "The file name was empty"
             else:
-                result = 'The file name of the uploaded script does not look like an ASCII-armored GPG-signed LPM script (*.lpm.asc)'
+                result = 'The file name of the uploaded script does not look like an ASCII-armored GPG-signed LPM script (*.lpm)'
 
 if form.getfirst('la', 'en') == 'ja':
     print html % (langsel_ja, result, plsupld_ja, gpgsigmsg_ja, navigation_ja)

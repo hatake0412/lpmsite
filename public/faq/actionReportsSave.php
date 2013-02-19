@@ -10,7 +10,12 @@ if (isset($_POST['submit'])) {
     } else {
       $errors='OS is required ';
     }
-
+    if (isset($_POST['osver']) && is_numeric(trim($_POST['osver']))) {
+        $vid = (int) $_POST['osver'];
+    } else {
+      $errors='Version is required ';
+    }
+    $bit=$_POST["bit"];
     // check action count
      $report = $_POST["report"];
     if (!isset($_POST["report"])) {
@@ -38,11 +43,11 @@ if (isset($_POST['submit'])) {
             $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         
             // generate UPDATE or INSERT query
-            $sth = $dbh->query("SELECT COUNT(id) as cnt FROM actionReports WHERE package_id = '$package_id' and os_id = '$os_id'" );
+            $sth = $dbh->query("SELECT COUNT(id) as cnt FROM actionReports WHERE package_id = '$package_id' and os_id = '$os_id' and vid = '$vid' and bit = '$bit'" );
             $counter=$sth->fetch();
             if($counter['cnt'] == 0){
-            $sql = "INSERT OR REPLACE INTO actionReports (id, package_id, os_id, okcnt, ngcnt, memo) 
-                    VALUES ((select max(id) from actionReports)+1, ?, ?, ?, ?, ?)";
+            $sql = "INSERT OR REPLACE INTO actionReports (id, package_id, os_id, okcnt, ngcnt, memo, vid, bit) 
+                    VALUES ((select max(id) from actionReports)+1, ?, ?, ?, ?, ?, ?, ?)";
             $sth = $dbh->prepare($sql);
             //$sth -> bindValue(1,$id, SQLITE3_INTEGER);
             $sth -> bindValue(1,$package_id, SQLITE3_INTEGER);
@@ -50,6 +55,8 @@ if (isset($_POST['submit'])) {
             $sth -> bindValue(3,$okcnt, SQLITE3_INTEGER);
             $sth -> bindValue(4,$ngcnt, SQLITE3_INTEGER);
             $sth -> bindValue(5,$memo, SQLITE3_TEXT);
+            $sth -> bindValue(6,$vid, SQLITE3_INTEGER);
+            $sth -> bindValue(7,$bit, SQLITE3_INTEGER);
             $result = $sth->execute();
             } else {
               $dbh->exec("UPDATE actionReports set okcnt=okcnt+'$okcnt',ngcnt=ngcnt+'$ngcnt' WHERE package_id = '$package_id' and os_id = '$os_id'");

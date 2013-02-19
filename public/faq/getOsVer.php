@@ -7,7 +7,7 @@ $id = $_GET["id"];
         // connect to database
         $dbh = new PDO('sqlite:/var/www/lpm/db/development.sqlite3');
 
-        $sth = $dbh->query("SELECT id,ver FROM osvm where os_id = '$id' order by ver");
+        $sth = $dbh->query("SELECT distinct id,ver FROM osvm where os_id = '$id' order by ver");
         $recver = $sth->fetchALL();
 
         unset($dbh);
@@ -17,7 +17,7 @@ $id = $_GET["id"];
 $item=array();
 foreach($recver as $data){
 
-  $item[]=array($data[0], $data[0]);
+  $item[]=array($data[0], $data[1]);
 }
 echo json_encode($item);
 }

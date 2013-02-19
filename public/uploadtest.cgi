@@ -91,7 +91,7 @@ html = '''
    </div>
    <div id="bottom"></div>
   </div>
-  <div id="footer">Design by <a href="http://www.minimalistic-design.net">Minimalistic Design</a></div>
+  <div id="footer">Copyright 2012 Masahiro Kasahara, all rights reserved.</div>
  </body>
 </html>
 '''

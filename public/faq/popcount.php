@@ -6,18 +6,19 @@ $package_id=$_GET['id'];
         // connect to database
         $dbh = new PDO('sqlite:/var/www/lpm/db/development.sqlite3');
 
-        $sth = $dbh->query("SELECT 
-                            ar.id as id,
-                            ar.package_id as package_id,
-                            om.id as os_id,
-                            om.name as name,
-                            ar.okcnt as okcnt,
-                            ar.ngcnt as ngcnt 
-                            FROM  (osmaster om left join actionReports ar on om.id = ar.os_id) left join osvm on om.id=osvm.os_id
-                            where 
-                            package_id = '$pid' 
-                            group by package_id, os_id
-                            order by name , bit");
+        $sth = $dbh->query("SELECT
+				ar.id as id,
+				ar.package_id as package_id,
+				om.id as os_id,
+				om.name as name,
+				sum(ar.okcnt) as okcnt,
+				sum(ar.ngcnt) as ngcnt
+		             FROM  osmaster om, actionReports ar
+			     where
+				package_id = '$pid'
+				and om.id = ar.os_id
+			     group by package_id, os_id
+			     order by os_id");
 
         $recall = $sth->fetchALL();
 
@@ -26,15 +27,17 @@ $package_id=$_GET['id'];
                             ar.package_id as package_id,
                             om.id as os_id,
                             om.name as name,
-                            osvm.ver,
-                            osvm.bit,
+                            osvm.ver as ver,
+                            ar.bit as bit,
                             ar.okcnt as okcnt,
                             ar.ngcnt as ngcnt
-                            FROM  (osmaster om left join actionReports ar on om.id = ar.os_id) left join osvm on om.id=osvm.os_id
+                            FROM osmaster om, actionReports ar, osvm
                             where
                             package_id = '$package_id'
-                            group by package_id, os_id
-                            order by name , bit");
+                            and om.id = ar.os_id
+                            and ar.os_id=osvm.os_id
+                            and ar.vid=osvm.id
+                            order by os_id");
 
         $recActionReport = $sth->fetchALL();
 

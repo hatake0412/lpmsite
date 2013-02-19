@@ -62,7 +62,6 @@ include '../include/headhtml.php';
           <th>subject</th>
           <th>name</th>
           <th>date</th>
-          <th>id</th>
       </tr>
   <?php foreach ($record as $p) {
   ?>
@@ -71,7 +70,6 @@ include '../include/headhtml.php';
       <td class="<?php echo $class; ?>"><a href= "./comment.php?rid=<?php echo $p['id']; ?>&name=<?php echo $_GET['name']; ?>&id=<?php echo $_GET['id']; ?>"><?php echo $p['content']; ?></a></td>
       <td class="<?php echo $class; ?>"><?php echo $p['name']; ?></td>
       <td class="<?php echo $class; ?>"><?php echo $p['updated_at']; ?></td>
-      <td class="<?php echo $class; ?>"><?php echo $p['id']; ?></td>
     </tr>
 
   <?php } ?>
@@ -100,7 +98,7 @@ include '../include/headhtml.php';
   </form>
     </div> <!-- end of middle  -->
   <div class="right">
-     <h2>Action Report </h2>
+     <h2>User Feedback </h2>
    <?php include 'popcount.php'; ?>
     <table >
       <tr>

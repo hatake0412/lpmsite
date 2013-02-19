@@ -13,7 +13,7 @@ try {
     $dbh = new PDO('sqlite:/var/www/lpm/db/development.sqlite3');
     
     // query and retrieve pending items
-    $sth = $dbh->query("SELECT  * FROM packages group by name having max(ver) ORDER BY name");
+    $sth = $dbh->query("SELECT  * FROM packages where approval=1 group by name ORDER BY name");
     $pending = $sth->fetchAll();
     $sth = null;
     
@@ -50,7 +50,7 @@ include '../include/headhtml.php';
           <th>description</th>
           <th>depends</th>    
           <th>OK</th>    
-          <th>FAQ</th></tr>    
+          <th>BBS</th></tr>    
 
   <?php foreach ($pending as $p) {
     include 'popcount.php';
@@ -71,7 +71,7 @@ include '../include/headhtml.php';
       <td class="<?php echo $class; ?>"><?php echo $p['description']; ?></td>
       <td class="<?php echo $class; ?>"><?php echo $p['depends']; ?></td>
       <td><a href="#" onClick="openbox('about <?php echo $p['name']; ?>', '<?php echo $p['id']; ?>', 1)" ><img src="/images/report_icon.jpg"  /></a></td>
-      <td><a href="form.php?id=<?php echo (int) $p['id']; ?>&name=<?php echo $p['name'] . " " .  $p['ver']; ?>" >FAQ</a></td>
+      <td><a href="form.php?id=<?php echo (int) $p['id']; ?>&name=<?php echo $p['name'] . " " .  $p['ver']; ?>" >BBS</a></td>
     </tr>
   <?php } ?>
   <?php include 'popup.php'; ?> 
