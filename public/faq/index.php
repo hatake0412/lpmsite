@@ -49,8 +49,10 @@ include '../include/headhtml.php';
           <th>ver</th>
           <th>description</th>
           <th>depends</th>    
-          <th>OK</th>    
-          <th>BBS</th></tr>    
+          <th>Report</th>    
+          <th>BBS</th>
+          <th>Licence</th>
+     </tr>    
 
   <?php foreach ($pending as $p) {
     include 'popcount.php';
@@ -59,19 +61,25 @@ include '../include/headhtml.php';
       $actionCount = $actionCount . "<tr><td>". $ra["name"] . "</td><td>" . $ra["okcnt"] . "</td><td>" . $ra["ngcnt"] . "</td></tr>";
     }
     $actionCount = $actionCount . "</table>";
+    if (is_null($p['vupcount'])){
+      $vupcount=0;
+    } else {
+      $vupcount=$p['vupcount'];
+    }
   ?>
-    
+     
     <tr>
       <td class="<?php echo $class; ?>">
           <a rel="tooltip" title="<?php echo $actionCount;?>" href= <?php echo $p['note']; ?> target="_blank">
              <?php echo $p['name'];?>
           </a>
       </td>
-      <td class="<?php echo $class; ?>"><?php echo $p['ver']; ?></td>
+      <td class="nowrap"><?php echo $p['ver']; ?> &nbsp;<a href="vupcount.php?id=<?php echo (int) $p['id']; ?>&name=<?php echo $p['name'] . " " .  $p['ver']; ?>" ><div style="font-size: 20%">VerUP? </a>[<?php echo $vupcount; ?>]</div></td>
       <td class="<?php echo $class; ?>"><?php echo $p['description']; ?></td>
       <td class="<?php echo $class; ?>"><?php echo $p['depends']; ?></td>
       <td><a href="#" onClick="openbox('about <?php echo $p['name']; ?>', '<?php echo $p['id']; ?>', 1)" ><img src="/images/report_icon.jpg"  /></a></td>
       <td><a href="form.php?id=<?php echo (int) $p['id']; ?>&name=<?php echo $p['name'] . " " .  $p['ver']; ?>" >BBS</a></td>
+      <td class="<?php echo $class; ?>"><?php echo $p['licence']; ?></td>
     </tr>
   <?php } ?>
   <?php include 'popup.php'; ?> 

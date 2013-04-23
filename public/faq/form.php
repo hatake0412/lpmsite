@@ -56,7 +56,14 @@ include '../include/headhtml.php';
       <?php include '../include/pan.php'; ?>
     </div>
     <div class="middle">
-     <h2>User FAQ for <?php echo $_GET['name']; ?></h2>
+     <div>
+     <div style="float: left"><h2>User FAQ for <?php echo $_GET['name']; ?></h2></div>
+     <div style="float: right"><h2>
+<div class="fb-like" data-href="http://www.localpackagemanager.com/" data-send="true" data-layout="button_count" data-width="450" data-show-faces="true"></div>
+     <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">ツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+     </h2> </div>
+     </div>
      <table>
       <tr>
           <th>subject</th>
@@ -120,6 +127,23 @@ include '../include/headhtml.php';
      </table>
 
   </div> <!-- end of right -->
+  <div class="right">
+     <h2>Version UP Request</h2>
+   <?php include 'vup.php'; ?>
+    <table >
+      <tr>
+         <th>Version UP Reqest</th>
+         <th>Count</th>
+      </tr>
+    <?php foreach ($recPackages as $r) { ?>
+      <tr>
+         <td><a href="vupcount.php?id=<?php echo (int) $r['id']; ?>" >VerUP? </a></td>
+         <td><?php echo $r['vupcount']; ?></td>
+      </tr>
+   <?php } ?>
+    </table>
+  </div> <!-- end of right -->
+
     <div id="clear"></div>
    </div>
    <div id="bottom"></div>

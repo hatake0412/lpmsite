@@ -70,17 +70,19 @@ if (isset($_POST['submit'])) {
             $package_id=$_POST['pid']; 
             // redirect to index page
             header('Location: form.php?id=' . $package_id .'&name=' . $_POST['pnm']);
+            // sending mail
+
+            $add_to = "hatake0412@gmail.com";
+            $subject = "about  " . $_POST["pnm"];
+            $message1 = "掲示板に新しい新しいスレッドが立ちました。\n\n\n =============書き込み内容============\n\n";
+            $message2 = $content .                          "\n\n\n =====================================\n\n\n\n";
+            $message3 = "http://" . $_SERVER["HTTP_HOST"] ."/faq/form.php?id=" . $_POST['pid'] . "&name=" . $_POST['pnm'];
+             mb_send_mail($add_to, $subject, $message1 . $message2 . $message3);
             exit();        
         } catch (PDOException $e) {
            die('Error: ' . $e->getMessage());
         }    
-    // sending mail
-    $add_to = "hatake0412@gamil.com";
-    $subject = "about" . $_POST["pnm"];
-    $message = "掲示板に新しい書き込みがありました。\n\n\n"
-               .$content . "\n\n" 
-               .$_SERVER["HTTP_HOST"] .form.php?id=' . $package_id .'&name=' . $_POST['pnm']; 
-    mb_send_mail($add_to, $subject, $message); 
+
     }    
 } else {
     die('Error in form submission');    

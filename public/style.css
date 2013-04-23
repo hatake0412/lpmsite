@@ -171,6 +171,10 @@ table td {
     background-color: #ffffff;
 }
 
+table td.nowrap {
+    white-space: nowrap;
+}
+
 /* 見出し
 ----------------------------------------------- */
 div#undercolumn_shopping table th[scope=col] {

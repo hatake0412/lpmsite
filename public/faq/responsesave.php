@@ -71,10 +71,11 @@ if (isset($_POST['submit'])) {
             unset($dbh);
             $package_id=$_POST['pid']; 
             // redirect to index page
+
        $add_to = "hatake0412@gmail.com";
        $subject = "about  " . $_POST["pnm"];
        $message1 = "掲示板に新しい書き込みがありました。\n\n\n =============書き込み内容============\n\n";
-       $message2 = $content . "\n\n ================================\n\n\n\n";
+       $message2 = $content .                          "\n\n\n =====================================\n\n\n\n";
        $message3 = "http://" . $_SERVER["HTTP_HOST"] ."/faq/form.php?id=" . $_POST['pid'] . "&name=" . $_POST['pnm'];
        mb_send_mail($add_to, $subject, $message1 . $message2 . $message3);
        header('Location: comment.php?rid=' . $_POST['rid'] . '&id=' . $_POST['pid'] .'&name=' . $_POST['pnm']);
